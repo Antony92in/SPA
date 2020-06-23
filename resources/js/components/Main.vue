@@ -4,23 +4,28 @@
 			<h1>Vue + Laravel SPA</h1>
 		</div>
 		<div id="nav">
-			<router-link v-bind:to="`/userpage/${login}`" class="link">My page</router-link>
-			<router-link to="/ex" class="link">Example</router-link>
+			<router-link to="/userpage" class="link">My page</router-link>
+			<router-link to="/posts" class="link">Posts</router-link>
+			<router-link to="/weather" class="link">Weather</router-link>
+			<a href="#">Comunity</a>
 		</div>
 		<div id="content">
+			<keep-alive>
 			<router-view></router-view>
+		    </keep-alive>
 		</div>
-	</div>
+</div>
 </template>
 
 <script type="text/javascript">
 	export default{
-		props: ['login'],
+		props: ['userid'],
 		data: function(){
 			return{
 				
 			}
-		}
+		},
+
 	}
 </script>
 
@@ -42,5 +47,10 @@
 }
 #content{
 	margin-top: 20px;
+	background-color: #e3f0fc;
+	border-radius: 10px;
+	padding: 20px;
+	height: 700px;
+	overflow: hidden;
 }
 </style>

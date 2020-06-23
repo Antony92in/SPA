@@ -3,23 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Auth\AuthManager;
-use Illuminate\Support\Facades\Storage;
-use App\Post;
 
-
-class UserController extends Controller
+class PostsController extends Controller
 {
-   public function index(Request $req)
-   {	
-   		$pic = $req->user()->pichash;
-   		
-   		return $pic;
-   }
-
-   public function store(Request $req)
+    public function store(Request $req)
    {
    		$post = new Post;
 
@@ -32,5 +22,12 @@ class UserController extends Controller
    		$post->content = $req->content;
 
    		$post->save();
+   }
+
+   public function getposts()
+   {
+   		$posts = Post::all();
+
+  		return $posts;
    }
 }

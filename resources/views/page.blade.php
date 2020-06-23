@@ -10,10 +10,24 @@
 <body>
 	<div id="app">
 		@auth
-		<maincom login="{{ Auth::user()->name }}"></maincom>
-	    @endauth
+		<maincom userid="{{ Auth::user()->id }}"></maincom>
+		<a class="logout" href="{{ route('logout') }}"
+		onclick="event.preventDefault();
+		document.getElementById('logout-form').submit();">
+		{{ __('Logout') }}
+	</a>
 
+	<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+		@csrf
+	</form>
+	@endauth
 </div>
 <script type="text/javascript" src="js/app.js"></script>
+<style type="text/css">
+	.logout{
+		margin-left: 50%;
+		margin-top: 50px;
+	}
+</style>
 </body>
 </html>

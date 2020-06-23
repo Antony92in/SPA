@@ -13,8 +13,9 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/userpage/:name', component: require('./components/Mycom.vue').default, props: true},
-  { path: '/ex', component: require('./components/ExampleComponent.vue').default },
+  { path: '/userpage', component: require('./components/Mypage.vue').default, props: true },
+  { path: '/posts', component: require('./components/Posts.vue').default },
+  { path: '/weather', component: require('./components/Weather.vue').default },
  
 ]
 
@@ -35,9 +36,15 @@ const router = new VueRouter({
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-Vue.component('mycom', require('./components/Mycom.vue').default);
+Vue.component('mypage', require('./components/Mypage.vue').default);
 
 Vue.component('maincom', require('./components/Main.vue').default);
+
+Vue.component('weather', require('./components/Weather.vue').default);
+
+Vue.component('posts', require('./components/Posts.vue').default);
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

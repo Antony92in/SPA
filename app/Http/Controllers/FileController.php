@@ -9,6 +9,6 @@ class FileController extends Controller
 {
 	public function upload(request $req)
 	{
-		$path = Storage::putFileAs('public', $req->file('userfile'), $req->user()->id . '.jpg' );
+		$path = Storage::putFileAs('public', $req->file('userfile'), $req->user()->pichash . '.jpg' );
 	}
 }

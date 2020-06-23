@@ -25,6 +25,10 @@ Route::get('/', function(){
 	return view('page');
 })->middleware('auth');
 
-Route::get('/user', 'UserController@index');
-
 Route::post('/upfile', 'FileController@upload');
+
+Route::post('/storepost','PostsController@store')->middleware('auth');
+
+Route::get('/posts', 'PostsController@getposts');
+
+Route::get('/userid','UserController@index')->middleware('auth');
